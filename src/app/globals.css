@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 5% 16%;
+    --foreground: 0 0% 100%;
+    --card: 240 5% 18%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 5% 16%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 224 100% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4% 22%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 4% 22%;
+    --muted-foreground: 240 5% 70%;
+    --accent: 272 100% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 26%;
+    --input: 240 5% 26%;
+    --ring: 224 100% 58%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+.bg-gradient-tech {
+  background: radial-gradient(circle at top left, hsl(var(--primary) / 0.15), transparent),
+              radial-gradient(circle at bottom right, hsl(var(--accent) / 0.15), transparent);
+}
+
+.file-drop-zone {
+  @apply border-2 border-dashed border-muted-foreground/30 rounded-xl transition-all duration-300;
+}
+
+.file-drop-zone:hover {
+  @apply border-primary/50 bg-primary/5;
+}
+
+.progress-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
